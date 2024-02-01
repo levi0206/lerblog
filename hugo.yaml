@@ -30,21 +30,20 @@ Params:
   hidesummary: true
 
 # For rendering math symbols
-# markup:
-#   goldmark:
-#     extensions:
-#       passthrough:
-#         delimiters:
-#           block:
-#           - - \[
-#             - \]
-#           - - $$
-#             - $$
-#           inline:
-#           - - \(
-#             - \)
-#         enable: true
-# params:
-#   math: true
-markdown: kramdown
+markup:
+  goldmark:
+    extensions:
+      passthrough:
+        delimiters:
+          block:
+          - - \[
+            - \]
+          - - $$
+            - $$
+          inline:
+          - - \(
+            - \)
+        enable: true
+params:
+  math: true
 
