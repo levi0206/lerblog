@@ -1,8 +1,10 @@
 <script>
     MathJax = {
+      loader: {load: ['[tex]/boldsymbol']},
       tex: {
         inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
         displayMath: [['$$','$$'], ['\\[', '\\]']],
+        packages: {'[+]': ['boldsymbol']},
       },
       svg: {
         fontCache: 'global'
