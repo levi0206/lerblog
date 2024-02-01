@@ -7,10 +7,10 @@ draft: false
 
 # Part I: Basics
 As an opening, we first mention some important concepts in deep learning, including
-- Artificial Neural Network
-- Automatic Differentiation and Backpropogation
-- Monte Carlo Estimation 
-- Minibatch Stochastic Gradient Descent.
+- artificial neural network
+- automatic differentiation
+- Monte Carlo estimation 
+- minibatch stochastic gradient descent.
 
 Given the extensive nature of each subsection, a comprehensive coverage is beyond the scope. Instead, we will pick certain subjects, explain some important ideas and theorems that support these mechanisms, and provide a simple example as demonstration.
 
