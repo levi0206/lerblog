@@ -282,12 +282,20 @@ in `loader` block and
 packages: {'[+]': ['boldsymbol']}
 ```
 in `tex` block. If you know how to fix it, please feel free to let me know.
+
+## Put jupyter notebook on your website
+We only need to convert `.ipynb` to `.md` using [nbconvert](https://nbconvert.readthedocs.io/en/latest/?badge=latest). Once you install it, run the command line in the directory you want to convert notebooks
+```
+jupyter nbconvert --to markdown notebook.ipynb
+```
+Put the converted `.md` file in the `/content/posts.` folder. You may face [image rendering problem](#add-images-to-your-post) or [MathJax](#mathjax-setting) problems. Be patient and don't give up. I put the references so you may have easier time to search. 
 # References
 - Installation
     - Install Hugo: https://gohugo.io/installation/
     - Install PaperMod: https://github.com/adityatelange/hugo-PaperMod
     - Hugo quickstart: https://gohugo.io/getting-started/quick-start/
     - Host on GitHub Pages: https://gohugo.io/hosting-and-deployment/hosting-on-github/
+    - nbconvert installation: https://nbconvert.readthedocs.io/en/latest/install.html
     - Helpful YouTube video: Create A Blog WIth Hugo And Deploy To Github In 10 Minutes, [link](https://www.youtube.com/watch?v=psyz4UPnGAA)
     - Helpful YouTube video: Getting Started With Hugo | FREE COURSE, [link](https://www.youtube.com/watch?v=hjD9jTi_DQ4&t=2299s)
 - Debugging:
@@ -295,11 +303,11 @@ in `tex` block. If you know how to fix it, please feel free to let me know.
         - GitHub documentation: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
         - Find your personal access tokens: https://docs.github.com/en/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization
         - Helpful YouTube video: How to fix 'fatal authentication failed for git push' permanently, [link](https://www.youtube.com/watch?v=pHaZW9OWUAQ)
-    - Mathjax
-        - Use Mathjax on Hugo: https://hommalab.io/posts/web/use-mathjax-on-hugo/
+    - MathJax
+        - Use MathJax on Hugo: https://hommalab.io/posts/web/use-mathjax-on-hugo/
         - https://bwaycer.github.io/hugo_tutorial.hugo/tutorials/mathjax/
         - https://geoffruddock.com/math-typesetting-in-hugo/
-        - Mathjax documentation: https://docs.mathjax.org/en/latest/web/configuration.html#configuring-mathjax
+        - MathJax documentation: https://docs.mathjax.org/en/latest/web/configuration.html#configuring-mathjax
 
 ### Device
 ubuntu, linux, 22.04
