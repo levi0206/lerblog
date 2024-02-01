@@ -195,7 +195,7 @@ nn.Sequential(
 )
 ```
 
-In practice, one can implement the neural network with different tricks: adjusting the depth (number of layers) of neural network or width (number of neurons) of a layer, using dropout [1], using batch normalization [9], or even choosing another activation function if needed.
+In practice, one can implement the neural network with different tricks: adjusting the depth, number of layers, of neural network or width, number of neurons, of a layer, using dropout [1], using batch normalization [9], or even choosing another activation function if needed.
 
 
 ```python
