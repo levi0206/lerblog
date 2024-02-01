@@ -80,9 +80,11 @@
 </script>
     <script>
     MathJax = {
+      loader: {load: ['[tex]/boldsymbol']},
       tex: {
         inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
         displayMath: [['$$','$$'], ['\\[', '\\]']],
+        packages: {'[+]': ['boldsymbol']},
       },
       svg: {
         fontCache: 'global'
@@ -180,11 +182,11 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">How to put your jupyter notebook on your website
+    <h2 class="entry-hint-parent">How to Put your Jupyter Notebook on your Hugo Website
     </h2>
   </header>
   <footer class="entry-footer"><span title='2024-02-01 10:05:01 +0800 CST'>February 1, 2024</span>&nbsp;·&nbsp;0 min</footer>
-  <a class="entry-link" aria-label="post link to How to put your jupyter notebook on your website" href="/posts/second/"></a>
+  <a class="entry-link" aria-label="post link to How to Put your Jupyter Notebook on your Hugo Website" href="/posts/second/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -265,6 +267,9 @@
     })
 
 </script>
-</body>
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script></body>
 
 </html>

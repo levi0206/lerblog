@@ -117,9 +117,11 @@
 </script>
     <script>
     MathJax = {
+      loader: {load: ['[tex]/boldsymbol']},
       tex: {
         inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
         displayMath: [['$$','$$'], ['\\[', '\\]']],
+        packages: {'[+]': ['boldsymbol']},
       },
       svg: {
         fontCache: 'global'
@@ -205,13 +207,14 @@
   </header> 
 
   <footer class="post-footer">
+    <div class="breadcrumbs"><a href="">Home</a>&nbsp;»&nbsp;<a href="/posts/">Posts</a></div>
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
   <a class="prev" href="/posts/second/">
     <span class="title">« Prev</span>
     <br>
-    <span>How to put your jupyter notebook on your website</span>
+    <span>How to Put your Jupyter Notebook on your Hugo Website</span>
   </a>
 </nav>
 
@@ -334,6 +337,9 @@
         }
     });
 </script>
-</body>
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script></body>
 
 </html>

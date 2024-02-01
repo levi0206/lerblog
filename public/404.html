@@ -65,9 +65,11 @@
 
     <script>
     MathJax = {
+      loader: {load: ['[tex]/boldsymbol']},
       tex: {
         inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
         displayMath: [['$$','$$'], ['\\[', '\\]']],
+        packages: {'[+]': ['boldsymbol']},
       },
       svg: {
         fontCache: 'global'
@@ -211,6 +213,9 @@
     })
 
 </script>
-</body>
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script></body>
 
 </html>

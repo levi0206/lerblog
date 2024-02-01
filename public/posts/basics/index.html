@@ -123,9 +123,11 @@ Artificial Neural Network Automatic Differentiation and Backpropogation Monte Ca
 </script>
     <script>
     MathJax = {
+      loader: {load: ['[tex]/boldsymbol']},
       tex: {
         inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
         displayMath: [['$$','$$'], ['\\[', '\\]']],
+        packages: {'[+]': ['boldsymbol']},
       },
       svg: {
         fontCache: 'global'
@@ -550,13 +552,14 @@ Epoch 200 loss 0.6936 acc 49.50%
   </div>
 
   <footer class="post-footer">
+    <div class="breadcrumbs"><a href="">Home</a>&nbsp;»&nbsp;<a href="/posts/">Posts</a></div>
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
   <a class="next" href="/posts/second/">
     <span class="title">Next »</span>
     <br>
-    <span>How to put your jupyter notebook on your website</span>
+    <span>How to Put your Jupyter Notebook on your Hugo Website</span>
   </a>
 </nav>
 
@@ -679,6 +682,9 @@ Epoch 200 loss 0.6936 acc 49.50%
         }
     });
 </script>
-</body>
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script></body>
 
 </html>

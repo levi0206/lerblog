@@ -18,7 +18,7 @@ Artificial Neural Network Automatic Differentiation and Backpropogation Monte Ca
 # Standard PyTorch import import torch import torch.</description>
     </item>
     <item>
-      <title>How to put your jupyter notebook on your website</title>
+      <title>How to Put your Jupyter Notebook on your Hugo Website</title>
       <link>/posts/second/</link>
       <pubDate>Thu, 01 Feb 2024 10:05:01 +0800</pubDate>
       <guid>/posts/second/</guid>
