@@ -222,7 +222,7 @@ $$
 $$
 Denote $I_n=[0,1]^n$ the $n$-dimensional unit cube and $C(I_n,\mathbb{R})$ space of continuous functions from $I_n$ to $\mathbb{R}$.
 
-**Theorem: universal approximation theorem, G.Cybenko.** Let $\sigma$ be any continuous sigmoidal function, $f\in C(I_n,\mathbb{R})$. Then finite sums of the form
+**Theorem: universal approximation theorem, G. Cybenko.** Let $\sigma$ be any continuous sigmoidal function, $f\in C(I_n,\mathbb{R})$. Then finite sums of the form
 $$
 G^N(x)=\sum_{j=1}^N \alpha_j\sigma(w_j^T x+\theta_j)
 $$
