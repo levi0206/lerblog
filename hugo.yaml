@@ -43,6 +43,8 @@ markup:
           inline:
           - - \(
             - \)
+          - - $
+            - $
         enable: true
 params:
   math: true
