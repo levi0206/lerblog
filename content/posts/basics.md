@@ -10,7 +10,7 @@ As an opening, we first mention some important concepts in deep learning, includ
 - Artificial Neural Network
 - Automatic Differentiation and Backpropogation
 - Monte Carlo Estimation 
-- Stochastic Gradient Descent.
+- Minibatch Stochastic Gradient Descent.
 
 Given the extensive nature of each subsection, a comprehensive coverage is beyond the scope. Instead, we will pick certain subjects, explain some important ideas and theorems that support these mechanisms, and provide a simple example as demonstration.
 
@@ -222,7 +222,7 @@ $$
 $$
 Denote $I_n=[0,1]^n$ the $n$-dimensional unit cube and $C(I_n,\mathbb{R})$ space of continuous functions from $I_n$ to $\mathbb{R}$.
 
-**Theorem ( Universal Approximation Theorem, G.Cybenko ).** Let $\sigma$ be any continuous sigmoidal function, $f\in C(I_n,\mathbb{R})$. Then finite sums of the form
+**Theorem: universal approximation theorem, G.Cybenko.** Let $\sigma$ be any continuous sigmoidal function, $f\in C(I_n,\mathbb{R})$. Then finite sums of the form
 $$
 G^N(x)=\sum_{j=1}^N \alpha_j\sigma(w_j^T x+\theta_j)
 $$
@@ -329,7 +329,7 @@ $$
 which are expensive and induce numerical error. We only use finite differences for testing the gradient. 
 - **symbolic differentiation** which can result in complex and redundant expressions.
 
-## ( Minibatch ) Stochastic Gradient Descent
+## Minibatch Stochastic Gradient Descent
 Nowadays, people usually prefer minibatch stochastic gradient descent to optimize neural networks, as it is more computationally efficient than gradient descent or stochastic gradient descent. 
 
 Let $\ell$ be our loss function. Let $n$ be the number of training datapoint, $b$ the batch size, ${\theta^0}\in\mathbb{R}^d$ the initial parameter of our neural network and $(\alpha_t)_{t\in\mathbb{N}}$ a sequence of step size, or learning rate. Given a subsest $B\subset \{1,...,n\}$, we define
