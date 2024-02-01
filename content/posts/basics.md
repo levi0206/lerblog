@@ -235,34 +235,34 @@ This original universal approximation theorem says a neural network with one lay
 ## Monte Carlo Estimation
 In a nutshell, Monte Carlo estimation simply says that one can replace an intractable integral by an average of summation.
 
-Let $p(\mathbf{x},\boldsymbol{\theta})$ be some probability distribution depending on a collection $\boldsymbol{\theta}$ of parameters. Consider the expectation of the form 
+Let $p(\mathbf{x},{\theta})$ be some probability distribution depending on a collection ${\theta}$ of parameters. Consider the expectation of the form 
 $$
-\mathcal{F}(\boldsymbol{\theta})=\int p(\mathbf{x},\boldsymbol{\theta})f(\mathbf{x},\boldsymbol{\phi})d\mathbf{x}=\mathbb{E}_{\mathbf{x}\sim p(\mathbf{x},\boldsymbol{\theta})}\left[f(\mathbf{x},\boldsymbol{\phi})\right]
+\mathcal{F}({\theta})=\int p(\mathbf{x},{\theta})f(\mathbf{x},{\phi})d\mathbf{x}=\mathbb{E}_{\mathbf{x}\sim p(\mathbf{x},{\theta})}\left[f(\mathbf{x},{\phi})\right]
 $$
-where $\mathbf{x}$ is the input of objective $f$ with probability $p(\mathbf{x},\boldsymbol{\theta})$, and $\boldsymbol{\phi}$ is a set of the parameters of $f$. Of course, $\boldsymbol{\phi}$ might be equal to $\boldsymbol{\theta}$. We are interested in learning the parameters $\boldsymbol{\theta}$, which requires the computation of the gradient of $\mathcal{F}(\boldsymbol{\theta})$ with respect to $\theta$:
+where $\mathbf{x}$ is the input of objective $f$ with probability $p(\mathbf{x},{\theta})$, and ${\phi}$ is a set of the parameters of $f$. Of course, ${\phi}$ might be equal to ${\theta}$. We are interested in learning the parameters ${\theta}$, which requires the computation of the gradient of $\mathcal{F}({\theta})$ with respect to $\theta$:
 $$
-\nabla_{\boldsymbol{\theta}}\mathcal{F}(\boldsymbol{\theta})=\nabla_{\boldsymbol{\theta}}\mathbb{E}_{\mathbf{x}\sim p(\mathbf{x},\boldsymbol{\theta})}\left[f(\mathbf{x},\boldsymbol{\phi})\right].
+\nabla_{{\theta}}\mathcal{F}({\theta})=\nabla_{{\theta}}\mathbb{E}_{\mathbf{x}\sim p(\mathbf{x},{\theta})}\left[f(\mathbf{x},{\phi})\right].
 $$
-The expectation in general is intractable because the distribution $p(\mathbf{x},\boldsymbol{\theta})$ might be high-dimensional, in deep learning, easily in the order of thousands or even more of dimensions, and very complicated. Moreover, the function $f$ might be non-differentiable, or a black-box function which the output is all we observe, artificial neural network for example. 
+The expectation in general is intractable because the distribution $p(\mathbf{x},{\theta})$ might be high-dimensional, in deep learning, easily in the order of thousands or even more of dimensions, and very complicated. Moreover, the function $f$ might be non-differentiable, or a black-box function which the output is all we observe, artificial neural network for example. 
 
 
-The Monte Carlo Method provides another insight of this sort of impossible calculation. Instead of computing the closed form of the integral directly, we draw i.i.d. samples $\hat{\mathbf{x}}^{(1)},...,\hat{\mathbf{x}}^{(S)}$ from $p(\mathbf{x},\boldsymbol{\theta})$, and approximate the integral with the average of $f(\hat{\mathbf{x}}^{(i)},\boldsymbol{\phi})$, called a Monte Carlo estimator:
+The Monte Carlo Method provides another insight of this sort of impossible calculation. Instead of computing the closed form of the integral directly, we draw i.i.d. samples $\hat{\mathbf{x}}^{(1)},...,\hat{\mathbf{x}}^{(S)}$ from $p(\mathbf{x},{\theta})$, and approximate the integral with the average of $f(\hat{\mathbf{x}}^{(i)},{\phi})$, called a Monte Carlo estimator:
 $$
-\bar{\mathcal{F}}_S=\frac{1}{S}\sum_{i=1}^S f(\hat{\mathbf{x}}^{(i)},\boldsymbol{\phi}).
+\bar{\mathcal{F}}_S=\frac{1}{S}\sum_{i=1}^S f(\hat{\mathbf{x}}^{(i)},{\phi}).
 $$
 Although $\bar{\mathcal{F}}_S$ is still a random variable because it depends on random variables $\hat{\mathbf{x}}^{(1)},...,\hat{\mathbf{x}}^{(S)}$, now it is equiped with desirable properties:
 
 **Unbiasedness.**
 $$
 \begin{align*}
-\mathbb{E}_{\hat{\mathbf{x}}^{(i)}\sim p(\hat{\mathbf{x}}^{(i)},\boldsymbol{\theta})}\left[\bar{\mathcal{F}}_S\right] & = \mathbb{E}_{\hat{\mathbf{x}}^{(i)}\sim p(\hat{\mathbf{x}}^{(i)},\boldsymbol{\theta})}\left[\frac{1}{S}\sum_{i=1}^S f(\hat{\mathbf{x}}^{(i)},\boldsymbol{\phi})\right] = \frac{1}{S}\sum_{i=1}^S\mathbb{E}_{\hat{\mathbf{x}}^{(i)}\sim p(\hat{\mathbf{x}}^{(i)},\boldsymbol{\theta})}\left[ f(\hat{\mathbf{x}}^{(i)},\boldsymbol{\phi})\right] \\
-& = \mathbb{E}_{\mathbf{x}\sim p(\mathbf{x},\boldsymbol{\theta})}\left[f(\mathbf{x},\boldsymbol{\phi})\right].
+\mathbb{E}_{\hat{\mathbf{x}}^{(i)}\sim p(\hat{\mathbf{x}}^{(i)},{\theta})}\left[\bar{\mathcal{F}}_S\right] & = \mathbb{E}_{\hat{\mathbf{x}}^{(i)}\sim p(\hat{\mathbf{x}}^{(i)},{\theta})}\left[\frac{1}{S}\sum_{i=1}^S f(\hat{\mathbf{x}}^{(i)},{\phi})\right] = \frac{1}{S}\sum_{i=1}^S\mathbb{E}_{\hat{\mathbf{x}}^{(i)}\sim p(\hat{\mathbf{x}}^{(i)},{\theta})}\left[ f(\hat{\mathbf{x}}^{(i)},{\phi})\right] \\
+& = \mathbb{E}_{\mathbf{x}\sim p(\mathbf{x},{\theta})}\left[f(\mathbf{x},{\phi})\right].
 \end{align*}
 $$
 Unbiasedness is always preferred because it allows us to guarantee the convergence of a stochastic optimisation procedure.
 
 **Consistency.** 
-By strong law of large numbers, the random variable $\bar{\mathcal{F}}_S$ converges to $\mathbb{E}_{\mathbf{x}\sim p(\mathbf{x},\boldsymbol{\theta})}\left[f(\mathbf{x},\boldsymbol{\phi})\right]$ almost surely as the number of samples $S$ increases.
+By strong law of large numbers, the random variable $\bar{\mathcal{F}}_S$ converges to $\mathbb{E}_{\mathbf{x}\sim p(\mathbf{x},{\theta})}\left[f(\mathbf{x},{\phi})\right]$ almost surely as the number of samples $S$ increases.
 
 Monte Carlo estimation provides a convenient approach to approximate expectations. For example, in generative adversarial networks, the discriminator is updated with the loss function
 $$
@@ -332,20 +332,20 @@ which are expensive and induce numerical error. We only use finite differences f
 ## (Minibatch) Stochastic Gradient Descent
 Nowadays, people usually prefer minibatch stochastic gradient descent to optimize neural networks, as it is more computationally efficient than gradient descent or stochastic gradient descent. 
 
-Let $\ell$ be our loss function. Let $n$ be the number of training datapoint, $b$ the batch size, $\boldsymbol{\theta^0}\in\mathbb{R}^d$ the initial parameter of our neural network and $(\alpha_t)_{t\in\mathbb{N}}$ a sequence of step size, or learning rate. Given a subsest $B\subset \{1,...,n\}$, we define
+Let $\ell$ be our loss function. Let $n$ be the number of training datapoint, $b$ the batch size, ${\theta^0}\in\mathbb{R}^d$ the initial parameter of our neural network and $(\alpha_t)_{t\in\mathbb{N}}$ a sequence of step size, or learning rate. Given a subsest $B\subset \{1,...,n\}$, we define
 $$
-\nabla_{\boldsymbol{\theta^t}} \ell_B(\boldsymbol{\theta^t})=\frac{1}{|B|}\sum_{i\in B} \nabla_{\boldsymbol{\theta^t}} \ell_i(\boldsymbol{\theta^t})
+\nabla_{{\theta^t}} \ell_B({\theta^t})=\frac{1}{|B|}\sum_{i\in B} \nabla_{{\theta^t}} \ell_i({\theta^t})
 $$
 The minibatch stochastic gradient descent algorithm is given by 
 $$
 \begin{aligned}
 & B_t\subset\{1,...,n\} \quad\quad \text{Sampled uniformly among sets of size $b$} \\
-& \boldsymbol{\theta^{t+1}} = \boldsymbol{\theta^t}-\alpha_t \nabla_{\boldsymbol{\theta^t}} \ell_B(\boldsymbol{\theta^t}).
+& {\theta^{t+1}} = {\theta^t}-\alpha_t \nabla_{{\theta^t}} \ell_B({\theta^t}).
 \end{aligned}
 $$
-Note that $\nabla_{\boldsymbol{\theta^t}} \ell_B(\boldsymbol{\theta^t})$ is an unbiased estimator
+Note that $\nabla_{{\theta^t}} \ell_B({\theta^t})$ is an unbiased estimator
 $$
-\mathbb{E}_{b}\left[\nabla_{\boldsymbol{\theta^t}} \ell_B(\boldsymbol{\theta^t})\right] = \frac{1}{{n \choose b}} \sum_{\substack{B\subset\{1,...,n\} \\ |B|=b}} \nabla_{\boldsymbol{\theta^t}} \ell_B(\boldsymbol{\theta^t}) = \nabla_{\boldsymbol{\theta^t}} \ell(\boldsymbol{\theta^t})
+\mathbb{E}_{b}\left[\nabla_{{\theta^t}} \ell_B({\theta^t})\right] = \frac{1}{{n \choose b}} \sum_{\substack{B\subset\{1,...,n\} \\ |B|=b}} \nabla_{{\theta^t}} \ell_B({\theta^t}) = \nabla_{{\theta^t}} \ell({\theta^t})
 $$
 because each batch is sampled with probability $\frac{1}{{n \choose b}}$. Readers interested in the convergence of minibatch SGD with convex and smooth functions may check [3] for related theorems and proofs.
 
