@@ -38,7 +38,7 @@ It is a local server that dynamically updating your changes on local device. If 
 ```
 baseurl: ""
 ```
-At least for, I can see my website using this trick. To add a new post, you can
+At least for me, I can see my website with this trick. To add a new post, you can
 1. type 
 ```
 hugo new content folder-you-want-to-store/first-post.md
@@ -190,7 +190,7 @@ fatal authentication failed ...
 ```
 The password does not mean "log-in" password; instead, it means "personal access tokens". If you don't have one, generate it. If you forget your personal access tokens, please go to the [documentation](https://docs.github.com/en/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization).
 
-Once you successfully push your code, you can go to "Actions" and check your website once the workflow finish.
+Once you successfully push your code, you can go to "Actions" and check your website once the workflow finishes.
 ## Add images to your post
 Suppose you want to insert an image `cat.png` into `first-post.md`. Be careful that you have to
 1. Add `cat.png` to the `static` folder. For example, 
