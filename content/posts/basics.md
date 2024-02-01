@@ -1,5 +1,5 @@
 ---
-title: "Basics"
+title: "Generative Models with Signature Part I: Basics"
 date: 2024-02-01T10:20:33+08:00
 draft: false
 ---
