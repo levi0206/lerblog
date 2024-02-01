@@ -211,8 +211,8 @@ markup:
       passthrough:
         delimiters:
           block:
-          - - \[
-            - \]
+          - - \\(
+            - \\)
           - - $$
             - $$
           inline:
